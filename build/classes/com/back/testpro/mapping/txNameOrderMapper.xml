@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.back.testpro.dao.txNameOrderMapper" >
+  <resultMap id="BaseResultMap" type="com.back.testpro.model.txNameOrder" >
+    <id column="txno_id" property="txnoId" jdbcType="INTEGER" />
+    <result column="txno_name" property="txnoName" jdbcType="VARCHAR" />
+    <result column="txno_remark" property="txnoRemark" jdbcType="VARCHAR" />
+    <result column="txno_spare1" property="txnoSpare1" jdbcType="VARCHAR" />
+    <result column="txno_spare2" property="txnoSpare2" jdbcType="VARCHAR" />
+    <result column="txno_spare3" property="txnoSpare3" jdbcType="VARCHAR" />
+    <result column="txno_spare4" property="txnoSpare4" jdbcType="VARCHAR" />
+    <result column="txno_spare5" property="txnoSpare5" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    txno_id, txno_name, txno_remark, txno_spare1, txno_spare2, txno_spare3, txno_spare4, 
+    txno_spare5
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tx_nameorder
+    where txno_id = #{txnoId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tx_nameorder
+    where txno_id = #{txnoId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.back.testpro.model.txNameOrder" >
+    insert into tx_nameorder (txno_id, txno_name, txno_remark, 
+      txno_spare1, txno_spare2, txno_spare3, 
+      txno_spare4, txno_spare5)
+    values (#{txnoId,jdbcType=INTEGER}, #{txnoName,jdbcType=VARCHAR}, #{txnoRemark,jdbcType=VARCHAR}, 
+      #{txnoSpare1,jdbcType=VARCHAR}, #{txnoSpare2,jdbcType=VARCHAR}, #{txnoSpare3,jdbcType=VARCHAR}, 
+      #{txnoSpare4,jdbcType=VARCHAR}, #{txnoSpare5,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.back.testpro.model.txNameOrder" >
+    insert into tx_nameorder
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="txnoId != null" >
+        txno_id,
+      </if>
+      <if test="txnoName != null" >
+        txno_name,
+      </if>
+      <if test="txnoRemark != null" >
+        txno_remark,
+      </if>
+      <if test="txnoSpare1 != null" >
+        txno_spare1,
+      </if>
+      <if test="txnoSpare2 != null" >
+        txno_spare2,
+      </if>
+      <if test="txnoSpare3 != null" >
+        txno_spare3,
+      </if>
+      <if test="txnoSpare4 != null" >
+        txno_spare4,
+      </if>
+      <if test="txnoSpare5 != null" >
+        txno_spare5,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="txnoId != null" >
+        #{txnoId,jdbcType=INTEGER},
+      </if>
+      <if test="txnoName != null" >
+        #{txnoName,jdbcType=VARCHAR},
+      </if>
+      <if test="txnoRemark != null" >
+        #{txnoRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="txnoSpare1 != null" >
+        #{txnoSpare1,jdbcType=VARCHAR},
+      </if>
+      <if test="txnoSpare2 != null" >
+        #{txnoSpare2,jdbcType=VARCHAR},
+      </if>
+      <if test="txnoSpare3 != null" >
+        #{txnoSpare3,jdbcType=VARCHAR},
+      </if>
+      <if test="txnoSpare4 != null" >
+        #{txnoSpare4,jdbcType=VARCHAR},
+      </if>
+      <if test="txnoSpare5 != null" >
+        #{txnoSpare5,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.back.testpro.model.txNameOrder" >
+    update tx_nameorder
+    <set >
+      <if test="txnoName != null" >
+        txno_name = #{txnoName,jdbcType=VARCHAR},
+      </if>
+      <if test="txnoRemark != null" >
+        txno_remark = #{txnoRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="txnoSpare1 != null" >
+        txno_spare1 = #{txnoSpare1,jdbcType=VARCHAR},
+      </if>
+      <if test="txnoSpare2 != null" >
+        txno_spare2 = #{txnoSpare2,jdbcType=VARCHAR},
+      </if>
+      <if test="txnoSpare3 != null" >
+        txno_spare3 = #{txnoSpare3,jdbcType=VARCHAR},
+      </if>
+      <if test="txnoSpare4 != null" >
+        txno_spare4 = #{txnoSpare4,jdbcType=VARCHAR},
+      </if>
+      <if test="txnoSpare5 != null" >
+        txno_spare5 = #{txnoSpare5,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where txno_id = #{txnoId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.back.testpro.model.txNameOrder" >
+    update tx_nameorder
+    set txno_name = #{txnoName,jdbcType=VARCHAR},
+      txno_remark = #{txnoRemark,jdbcType=VARCHAR},
+      txno_spare1 = #{txnoSpare1,jdbcType=VARCHAR},
+      txno_spare2 = #{txnoSpare2,jdbcType=VARCHAR},
+      txno_spare3 = #{txnoSpare3,jdbcType=VARCHAR},
+      txno_spare4 = #{txnoSpare4,jdbcType=VARCHAR},
+      txno_spare5 = #{txnoSpare5,jdbcType=VARCHAR}
+    where txno_id = #{txnoId,jdbcType=INTEGER}
+  </update>
+  
+  
+  	<select id="queryTempList" resultMap="BaseResultMap"
+		parameterType="com.back.testpro.model.txNameOrder">
+		select
+		<include refid="Base_Column_List" />
+		from tx_nameorder
+		<where>
+			(1=1) 
+			
+			<if test="txnoName!=null and txnoName!=''">
+				and txno_name like concat(concat('%',#{txnoName}),'%')
+			</if>
+			<if test="txnoSpare1!=null and txnoSpare1!=''">
+				and txno_spare1 like concat(concat('%',#{txnoSpare1}),'%')
+			</if>
+			
+		</where>
+		order by txno_id desc 
+	</select>
+	
+	
+	<delete id="deleteByPrimaryKeys">
+		delete from tx_nameorder
+		where txno_id in
+		<foreach collection="array" item="item" index="index" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</delete>
+  
+</mapper>

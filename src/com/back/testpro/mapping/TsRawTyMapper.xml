@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.back.testpro.dao.TsRawTyMapper" >
+  <resultMap id="BaseResultMap" type="com.back.testpro.model.TsRawTy" >
+    <id column="tsr_id" property="tsrId" jdbcType="VARCHAR" />
+    <result column="tsr_name" property="tsrName" jdbcType="VARCHAR" />
+    <result column="tsr_num" property="tsrNum" jdbcType="INTEGER" />
+    <result column="tsr_content" property="tsrContent" jdbcType="VARCHAR" />
+    <result column="tsr_spare1" property="tsrSpare1" jdbcType="VARCHAR" />
+    <result column="tsr_spare2" property="tsrSpare2" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    tsr_id, tsr_name, tsr_num, tsr_content, tsr_spare1, tsr_spare2
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ts_rawty
+    where tsr_id = #{tsrId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from ts_rawty
+    where tsr_id = #{tsrId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.back.testpro.model.TsRawTy" >
+    insert into ts_rawty (tsr_id, tsr_name, tsr_num, 
+      tsr_content, tsr_spare1, tsr_spare2
+      )
+    values (#{tsrId,jdbcType=VARCHAR}, #{tsrName,jdbcType=VARCHAR}, #{tsrNum,jdbcType=INTEGER}, 
+      #{tsrContent,jdbcType=VARCHAR}, #{tsrSpare1,jdbcType=VARCHAR}, #{tsrSpare2,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.back.testpro.model.TsRawTy" >
+    insert into ts_rawty
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="tsrId != null" >
+        tsr_id,
+      </if>
+      <if test="tsrName != null" >
+        tsr_name,
+      </if>
+      <if test="tsrNum != null" >
+        tsr_num,
+      </if>
+      <if test="tsrContent != null" >
+        tsr_content,
+      </if>
+      <if test="tsrSpare1 != null" >
+        tsr_spare1,
+      </if>
+      <if test="tsrSpare2 != null" >
+        tsr_spare2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="tsrId != null" >
+        #{tsrId,jdbcType=VARCHAR},
+      </if>
+      <if test="tsrName != null" >
+        #{tsrName,jdbcType=VARCHAR},
+      </if>
+      <if test="tsrNum != null" >
+        #{tsrNum,jdbcType=INTEGER},
+      </if>
+      <if test="tsrContent != null" >
+        #{tsrContent,jdbcType=VARCHAR},
+      </if>
+      <if test="tsrSpare1 != null" >
+        #{tsrSpare1,jdbcType=VARCHAR},
+      </if>
+      <if test="tsrSpare2 != null" >
+        #{tsrSpare2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.back.testpro.model.TsRawTy" >
+    update ts_rawty
+    <set >
+      <if test="tsrName != null" >
+        tsr_name = #{tsrName,jdbcType=VARCHAR},
+      </if>
+      <if test="tsrNum != null" >
+        tsr_num = #{tsrNum,jdbcType=INTEGER},
+      </if>
+      <if test="tsrContent != null" >
+        tsr_content = #{tsrContent,jdbcType=VARCHAR},
+      </if>
+      <if test="tsrSpare1 != null" >
+        tsr_spare1 = #{tsrSpare1,jdbcType=VARCHAR},
+      </if>
+      <if test="tsrSpare2 != null" >
+        tsr_spare2 = #{tsrSpare2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where tsr_id = #{tsrId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.back.testpro.model.TsRawTy" >
+    update ts_rawty
+    set tsr_name = #{tsrName,jdbcType=VARCHAR},
+      tsr_num = #{tsrNum,jdbcType=INTEGER},
+      tsr_content = #{tsrContent,jdbcType=VARCHAR},
+      tsr_spare1 = #{tsrSpare1,jdbcType=VARCHAR},
+      tsr_spare2 = #{tsrSpare2,jdbcType=VARCHAR}
+    where tsr_id = #{tsrId,jdbcType=VARCHAR}
+  </update>
+  
+  
+  
+  	<select id="queryTemp" resultMap="BaseResultMap" parameterType="com.back.testpro.model.TsRawTy">
+		select
+		<include refid="Base_Column_List" />
+		from ts_rawty
+		<where>
+			(1=1)
+			<if test="tsrNum!=null and tsrNum!=''">
+				and tsr_num like concat(concat('%',#{tsrNum}),'%')
+			</if>
+		</where>
+	</select>
+  
+</mapper>

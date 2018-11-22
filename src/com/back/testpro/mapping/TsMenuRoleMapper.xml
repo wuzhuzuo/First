@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.back.testpro.dao.TsMenuRoleMapper" >
+  <resultMap id="BaseResultMap" type="com.back.testpro.model.TsMenuRole" >
+    <id column="mr_id" property="mrId" jdbcType="VARCHAR" />
+    <result column="mr_name" property="mrName" jdbcType="VARCHAR" />
+    <result column="mr_num" property="mrNum" jdbcType="INTEGER" />
+    <result column="mr_spare1" property="mrSpare1" jdbcType="VARCHAR" />
+    <result column="mr_spare2" property="mrSpare2" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    mr_id, mr_name, mr_num, mr_spare1, mr_spare2
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ts_menu_role
+    where mr_id = #{mrId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from ts_menu_role
+    where mr_id = #{mrId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.back.testpro.model.TsMenuRole" >
+    insert into ts_menu_role (mr_id, mr_name, mr_num, 
+      mr_spare1, mr_spare2)
+    values (#{mrId,jdbcType=VARCHAR}, #{mrName,jdbcType=VARCHAR}, #{mrNum,jdbcType=INTEGER}, 
+      #{mrSpare1,jdbcType=VARCHAR}, #{mrSpare2,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.back.testpro.model.TsMenuRole" >
+    insert into ts_menu_role
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="mrId != null" >
+        mr_id,
+      </if>
+      <if test="mrName != null" >
+        mr_name,
+      </if>
+      <if test="mrNum != null" >
+        mr_num,
+      </if>
+      <if test="mrSpare1 != null" >
+        mr_spare1,
+      </if>
+      <if test="mrSpare2 != null" >
+        mr_spare2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="mrId != null" >
+        #{mrId,jdbcType=VARCHAR},
+      </if>
+      <if test="mrName != null" >
+        #{mrName,jdbcType=VARCHAR},
+      </if>
+      <if test="mrNum != null" >
+        #{mrNum,jdbcType=INTEGER},
+      </if>
+      <if test="mrSpare1 != null" >
+        #{mrSpare1,jdbcType=VARCHAR},
+      </if>
+      <if test="mrSpare2 != null" >
+        #{mrSpare2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.back.testpro.model.TsMenuRole" >
+    update ts_menu_role
+    <set >
+      <if test="mrName != null" >
+        mr_name = #{mrName,jdbcType=VARCHAR},
+      </if>
+      <if test="mrNum != null" >
+        mr_num = #{mrNum,jdbcType=INTEGER},
+      </if>
+      <if test="mrSpare1 != null" >
+        mr_spare1 = #{mrSpare1,jdbcType=VARCHAR},
+      </if>
+      <if test="mrSpare2 != null" >
+        mr_spare2 = #{mrSpare2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where mr_id = #{mrId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.back.testpro.model.TsMenuRole" >
+    update ts_menu_role
+    set mr_name = #{mrName,jdbcType=VARCHAR},
+      mr_num = #{mrNum,jdbcType=INTEGER},
+      mr_spare1 = #{mrSpare1,jdbcType=VARCHAR},
+      mr_spare2 = #{mrSpare2,jdbcType=VARCHAR}
+    where mr_id = #{mrId,jdbcType=VARCHAR}
+  </update>
+</mapper>

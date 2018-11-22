@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.back.testpro.dao.TxDataCountMapper" >
+  <resultMap id="BaseResultMap" type="com.back.testpro.model.TxDataCount" >
+    <id column="txdc_id" property="txdcId" jdbcType="VARCHAR" />
+    <result column="txdc_mainid" property="txdcMainid" jdbcType="VARCHAR" />
+    <result column="txdc_order" property="txdcOrder" jdbcType="INTEGER" />
+    <result column="txdc_name" property="txdcName" jdbcType="VARCHAR" />
+    <result column="txdc_flag" property="txdcFlag" jdbcType="INTEGER" />
+    <result column="txdc_count" property="txdcCount" jdbcType="VARCHAR" />
+    <result column="txdc_side" property="txdcSide" jdbcType="VARCHAR" />
+    <result column="txdc_spare1" property="txdcSpare1" jdbcType="VARCHAR" />
+    <result column="txdc_spare2" property="txdcSpare2" jdbcType="VARCHAR" />
+    <result column="txdc_spare3" property="txdcSpare3" jdbcType="VARCHAR" />
+    <result column="txdc_spare4" property="txdcSpare4" jdbcType="VARCHAR" />
+    <result column="txdc_spare5" property="txdcSpare5" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    txdc_id, txdc_mainid, txdc_order, txdc_name, txdc_flag, txdc_count, txdc_side, txdc_spare1, 
+    txdc_spare2, txdc_spare3, txdc_spare4, txdc_spare5
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from tx_datacount
+    where txdc_id = #{txdcId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from tx_datacount
+    where txdc_id = #{txdcId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.back.testpro.model.TxDataCount" >
+    insert into tx_datacount (txdc_id, txdc_mainid, txdc_order, 
+      txdc_name, txdc_flag, txdc_count, 
+      txdc_side, txdc_spare1, txdc_spare2, 
+      txdc_spare3, txdc_spare4, txdc_spare5
+      )
+    values (#{txdcId,jdbcType=VARCHAR}, #{txdcMainid,jdbcType=VARCHAR}, #{txdcOrder,jdbcType=INTEGER}, 
+      #{txdcName,jdbcType=VARCHAR}, #{txdcFlag,jdbcType=INTEGER}, #{txdcCount,jdbcType=VARCHAR}, 
+      #{txdcSide,jdbcType=VARCHAR}, #{txdcSpare1,jdbcType=VARCHAR}, #{txdcSpare2,jdbcType=VARCHAR}, 
+      #{txdcSpare3,jdbcType=VARCHAR}, #{txdcSpare4,jdbcType=VARCHAR}, #{txdcSpare5,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.back.testpro.model.TxDataCount" >
+    insert into tx_datacount
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="txdcId != null" >
+        txdc_id,
+      </if>
+      <if test="txdcMainid != null" >
+        txdc_mainid,
+      </if>
+      <if test="txdcOrder != null" >
+        txdc_order,
+      </if>
+      <if test="txdcName != null" >
+        txdc_name,
+      </if>
+      <if test="txdcFlag != null" >
+        txdc_flag,
+      </if>
+      <if test="txdcCount != null" >
+        txdc_count,
+      </if>
+      <if test="txdcSide != null" >
+        txdc_side,
+      </if>
+      <if test="txdcSpare1 != null" >
+        txdc_spare1,
+      </if>
+      <if test="txdcSpare2 != null" >
+        txdc_spare2,
+      </if>
+      <if test="txdcSpare3 != null" >
+        txdc_spare3,
+      </if>
+      <if test="txdcSpare4 != null" >
+        txdc_spare4,
+      </if>
+      <if test="txdcSpare5 != null" >
+        txdc_spare5,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="txdcId != null" >
+        #{txdcId,jdbcType=VARCHAR},
+      </if>
+      <if test="txdcMainid != null" >
+        #{txdcMainid,jdbcType=VARCHAR},
+      </if>
+      <if test="txdcOrder != null" >
+        #{txdcOrder,jdbcType=INTEGER},
+      </if>
+      <if test="txdcName != null" >
+        #{txdcName,jdbcType=VARCHAR},
+      </if>
+      <if test="txdcFlag != null" >
+        #{txdcFlag,jdbcType=INTEGER},
+      </if>
+      <if test="txdcCount != null" >
+        #{txdcCount,jdbcType=VARCHAR},
+      </if>
+      <if test="txdcSide != null" >
+        #{txdcSide,jdbcType=VARCHAR},
+      </if>
+      <if test="txdcSpare1 != null" >
+        #{txdcSpare1,jdbcType=VARCHAR},
+      </if>
+      <if test="txdcSpare2 != null" >
+        #{txdcSpare2,jdbcType=VARCHAR},
+      </if>
+      <if test="txdcSpare3 != null" >
+        #{txdcSpare3,jdbcType=VARCHAR},
+      </if>
+      <if test="txdcSpare4 != null" >
+        #{txdcSpare4,jdbcType=VARCHAR},
+      </if>
+      <if test="txdcSpare5 != null" >
+        #{txdcSpare5,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.back.testpro.model.TxDataCount" >
+    update tx_datacount
+    <set >
+      <if test="txdcMainid != null" >
+        txdc_mainid = #{txdcMainid,jdbcType=VARCHAR},
+      </if>
+      <if test="txdcOrder != null" >
+        txdc_order = #{txdcOrder,jdbcType=INTEGER},
+      </if>
+      <if test="txdcName != null" >
+        txdc_name = #{txdcName,jdbcType=VARCHAR},
+      </if>
+      <if test="txdcFlag != null" >
+        txdc_flag = #{txdcFlag,jdbcType=INTEGER},
+      </if>
+      <if test="txdcCount != null" >
+        txdc_count = #{txdcCount,jdbcType=VARCHAR},
+      </if>
+      <if test="txdcSide != null" >
+        txdc_side = #{txdcSide,jdbcType=VARCHAR},
+      </if>
+      <if test="txdcSpare1 != null" >
+        txdc_spare1 = #{txdcSpare1,jdbcType=VARCHAR},
+      </if>
+      <if test="txdcSpare2 != null" >
+        txdc_spare2 = #{txdcSpare2,jdbcType=VARCHAR},
+      </if>
+      <if test="txdcSpare3 != null" >
+        txdc_spare3 = #{txdcSpare3,jdbcType=VARCHAR},
+      </if>
+      <if test="txdcSpare4 != null" >
+        txdc_spare4 = #{txdcSpare4,jdbcType=VARCHAR},
+      </if>
+      <if test="txdcSpare5 != null" >
+        txdc_spare5 = #{txdcSpare5,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where txdc_id = #{txdcId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.back.testpro.model.TxDataCount" >
+    update tx_datacount
+    set txdc_mainid = #{txdcMainid,jdbcType=VARCHAR},
+      txdc_order = #{txdcOrder,jdbcType=INTEGER},
+      txdc_name = #{txdcName,jdbcType=VARCHAR},
+      txdc_flag = #{txdcFlag,jdbcType=INTEGER},
+      txdc_count = #{txdcCount,jdbcType=VARCHAR},
+      txdc_side = #{txdcSide,jdbcType=VARCHAR},
+      txdc_spare1 = #{txdcSpare1,jdbcType=VARCHAR},
+      txdc_spare2 = #{txdcSpare2,jdbcType=VARCHAR},
+      txdc_spare3 = #{txdcSpare3,jdbcType=VARCHAR},
+      txdc_spare4 = #{txdcSpare4,jdbcType=VARCHAR},
+      txdc_spare5 = #{txdcSpare5,jdbcType=VARCHAR}
+    where txdc_id = #{txdcId,jdbcType=VARCHAR}
+  </update>
+  
+  
+  	<select id="queryTempList" resultMap="BaseResultMap"
+		parameterType="com.back.testpro.model.TxDataCount">
+		select
+		<include refid="Base_Column_List" />
+		from tx_datacount
+		<where>
+			(1=1)
+			<if test="txdcMainid!=null and txdcMainid!=''">
+				and txdc_mainid like concat(concat('%',#{txdcMainid}),'%')
+			</if>
+		</where>
+		order by txdc_order asc
+	</select>
+  
+  
+  	<delete id="deleteByPrimaryKeys">
+		delete from tx_datacount
+		where txdc_mainid in
+		<foreach collection="array" item="item" index="index" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</delete>
+  
+</mapper>

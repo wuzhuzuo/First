@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.back.testpro.dao.TyModelMapper" >
+  <resultMap id="BaseResultMap" type="com.back.testpro.model.TyModel" >
+    <id column="tym_id" property="tymId" jdbcType="VARCHAR" />
+    <result column="tym_name" property="tymName" jdbcType="VARCHAR" />
+    <result column="tym_flag" property="tymFlag" jdbcType="INTEGER" />
+    <result column="tym_fuldata" property="tymFuldata" jdbcType="VARCHAR" />
+    <result column="tym_order" property="tymOrder" jdbcType="INTEGER" />
+    <result column="tym_side" property="tymSide" jdbcType="VARCHAR" />
+    <result column="tym_spare1" property="tymSpare1" jdbcType="VARCHAR" />
+    <result column="tym_spare2" property="tymSpare2" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    tym_id, tym_name, tym_flag, tym_fuldata, tym_order, tym_side, tym_spare1, tym_spare2
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ty_model
+    where tym_id = #{tymId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from ty_model
+    where tym_id = #{tymId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.back.testpro.model.TyModel" >
+    insert into ty_model (tym_id, tym_name, tym_flag, 
+      tym_fuldata, tym_order, tym_side, 
+      tym_spare1, tym_spare2)
+    values (#{tymId,jdbcType=VARCHAR}, #{tymName,jdbcType=VARCHAR}, #{tymFlag,jdbcType=INTEGER}, 
+      #{tymFuldata,jdbcType=VARCHAR}, #{tymOrder,jdbcType=INTEGER}, #{tymSide,jdbcType=VARCHAR}, 
+      #{tymSpare1,jdbcType=VARCHAR}, #{tymSpare2,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.back.testpro.model.TyModel" >
+    insert into ty_model
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="tymId != null" >
+        tym_id,
+      </if>
+      <if test="tymName != null" >
+        tym_name,
+      </if>
+      <if test="tymFlag != null" >
+        tym_flag,
+      </if>
+      <if test="tymFuldata != null" >
+        tym_fuldata,
+      </if>
+      <if test="tymOrder != null" >
+        tym_order,
+      </if>
+      <if test="tymSide != null" >
+        tym_side,
+      </if>
+      <if test="tymSpare1 != null" >
+        tym_spare1,
+      </if>
+      <if test="tymSpare2 != null" >
+        tym_spare2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="tymId != null" >
+        #{tymId,jdbcType=VARCHAR},
+      </if>
+      <if test="tymName != null" >
+        #{tymName,jdbcType=VARCHAR},
+      </if>
+      <if test="tymFlag != null" >
+        #{tymFlag,jdbcType=INTEGER},
+      </if>
+      <if test="tymFuldata != null" >
+        #{tymFuldata,jdbcType=VARCHAR},
+      </if>
+      <if test="tymOrder != null" >
+        #{tymOrder,jdbcType=INTEGER},
+      </if>
+      <if test="tymSide != null" >
+        #{tymSide,jdbcType=VARCHAR},
+      </if>
+      <if test="tymSpare1 != null" >
+        #{tymSpare1,jdbcType=VARCHAR},
+      </if>
+      <if test="tymSpare2 != null" >
+        #{tymSpare2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.back.testpro.model.TyModel" >
+    update ty_model
+    <set >
+      <if test="tymName != null" >
+        tym_name = #{tymName,jdbcType=VARCHAR},
+      </if>
+      <if test="tymFlag != null" >
+        tym_flag = #{tymFlag,jdbcType=INTEGER},
+      </if>
+      <if test="tymFuldata != null" >
+        tym_fuldata = #{tymFuldata,jdbcType=VARCHAR},
+      </if>
+      <if test="tymOrder != null" >
+        tym_order = #{tymOrder,jdbcType=INTEGER},
+      </if>
+      <if test="tymSide != null" >
+        tym_side = #{tymSide,jdbcType=VARCHAR},
+      </if>
+      <if test="tymSpare1 != null" >
+        tym_spare1 = #{tymSpare1,jdbcType=VARCHAR},
+      </if>
+      <if test="tymSpare2 != null" >
+        tym_spare2 = #{tymSpare2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where tym_id = #{tymId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.back.testpro.model.TyModel" >
+    update ty_model
+    set tym_name = #{tymName,jdbcType=VARCHAR},
+      tym_flag = #{tymFlag,jdbcType=INTEGER},
+      tym_fuldata = #{tymFuldata,jdbcType=VARCHAR},
+      tym_order = #{tymOrder,jdbcType=INTEGER},
+      tym_side = #{tymSide,jdbcType=VARCHAR},
+      tym_spare1 = #{tymSpare1,jdbcType=VARCHAR},
+      tym_spare2 = #{tymSpare2,jdbcType=VARCHAR}
+    where tym_id = #{tymId,jdbcType=VARCHAR}
+  </update>
+  
+  
+  
+  <select id="queryTemp" resultMap="BaseResultMap"
+		parameterType="com.back.testpro.model.TyModel">
+		select
+		<include refid="Base_Column_List" />
+		from ty_model
+		<where>
+			(1=1)
+			
+			<if test="tymId!=null and tymId!=''">
+				and TYM_ID like concat(concat('%',#{tymId}),'%')
+			</if>
+			
+		</where>
+		order by tym_id desc,tym_order asc
+  </select>
+	
+  <select id="queryTempList" resultMap="BaseResultMap"
+		parameterType="com.back.testpro.model.TyModel">
+		select
+		<include refid="Base_Column_List" />
+		from ty_model
+		<where>
+			(1=1)
+			
+			<if test="tymSpare1!=null and tymSpare1!=''">
+				and TYM_SPARE1 like concat(concat('%',#{tymSpare1}),'%')
+			</if>
+			
+			<if test="tymFlag!=null and tymFlag!=''">
+				and TYM_FLAG like concat(concat('%',#{tymFlag}),'%')
+			</if>
+			
+		</where>
+		order by tym_id desc,tym_order asc
+	</select>
+	<select id="queryView" resultMap="BaseResultMap"
+		parameterType="com.back.testpro.model.TyModel">
+		select
+		<include refid="Base_Column_List" />
+		from ty_model
+		<where>
+			(1=1)
+			
+			<if test="tymSpare2!=null and tymSpare2!=''">
+				and TYM_SPARE2 like concat(concat('%',#{tymSpare2}),'%')
+			</if>
+			
+		</where>
+		order by tym_order asc ,tym_id desc
+	</select>
+	
+	<delete id="deleteByPrimaryKeys">
+		delete from ty_model
+		where TYM_SPARE2 in
+		<foreach collection="array" item="item" index="index" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</delete>
+	
+</mapper>

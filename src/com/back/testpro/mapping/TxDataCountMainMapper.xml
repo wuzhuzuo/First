@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.back.testpro.dao.TxDataCountMainMapper" >
+  <resultMap id="BaseResultMap" type="com.back.testpro.model.TxDataCountMain" >
+    <id column="tdm_id" property="tdmId" jdbcType="VARCHAR" />
+    <result column="tdm_mrid" property="tdmMrid" jdbcType="INTEGER" />
+    <result column="tdm_name" property="tdmName" jdbcType="VARCHAR" />
+    <result column="tdm_testNum" property="tdmTestnum" jdbcType="VARCHAR" />
+    <result column="tdm_school" property="tdmSchool" jdbcType="VARCHAR" />
+    <result column="tdm_class" property="tdmClass" jdbcType="VARCHAR" />
+    <result column="tdm_grade" property="tdmGrade" jdbcType="VARCHAR" />
+    <result column="tdm_testArea" property="tdmTestarea" jdbcType="VARCHAR" />
+    <result column="tdm_yearSeason" property="tdmYearseason" jdbcType="VARCHAR" />
+    <result column="tdm_yearMonth" property="tdmYearmonth" jdbcType="VARCHAR" />
+    <result column="tdm_spare1" property="tdmSpare1" jdbcType="VARCHAR" />
+    <result column="tdm_spare2" property="tdmSpare2" jdbcType="VARCHAR" />
+    <result column="tdm_spare3" property="tdmSpare3" jdbcType="VARCHAR" />
+    <result column="tdm_spare4" property="tdmSpare4" jdbcType="VARCHAR" />
+    <result column="tdm_spare5" property="tdmSpare5" jdbcType="VARCHAR" />
+    <result column="tdm_spare6" property="tdmSpare6" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    tdm_id, tdm_mrid, tdm_name, tdm_testNum, tdm_school, tdm_class, tdm_grade, tdm_testArea, 
+    tdm_yearSeason, tdm_yearMonth, tdm_spare1, tdm_spare2, tdm_spare3, tdm_spare4, tdm_spare5, tdm_spare6
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from tx_datacount_main
+    where tdm_id = #{tdmId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from tx_datacount_main
+    where tdm_id = #{tdmId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.back.testpro.model.TxDataCountMain" >
+    insert into tx_datacount_main (tdm_id, tdm_mrid, tdm_name, 
+      tdm_testNum, tdm_school, tdm_class, 
+      tdm_grade, tdm_testArea, tdm_yearSeason, 
+      tdm_yearMonth, tdm_spare1, tdm_spare2, 
+      tdm_spare3, tdm_spare4, tdm_spare5, tdm_spare6
+      )
+    values (#{tdmId,jdbcType=VARCHAR}, #{tdmMrid,jdbcType=INTEGER}, #{tdmName,jdbcType=VARCHAR}, 
+      #{tdmTestnum,jdbcType=VARCHAR}, #{tdmSchool,jdbcType=VARCHAR}, #{tdmClass,jdbcType=VARCHAR}, 
+      #{tdmGrade,jdbcType=VARCHAR}, #{tdmTestarea,jdbcType=VARCHAR}, #{tdmYearseason,jdbcType=VARCHAR}, 
+      #{tdmYearmonth,jdbcType=VARCHAR}, #{tdmSpare1,jdbcType=VARCHAR}, #{tdmSpare2,jdbcType=VARCHAR}, 
+      #{tdmSpare3,jdbcType=VARCHAR}, #{tdmSpare4,jdbcType=VARCHAR}, #{tdmSpare5,jdbcType=VARCHAR}, #{tdmSpare6,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.back.testpro.model.TxDataCountMain" >
+    insert into tx_datacount_main
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="tdmId != null" >
+        tdm_id,
+      </if>
+      <if test="tdmMrid != null" >
+        tdm_mrid,
+      </if>
+      <if test="tdmName != null" >
+        tdm_name,
+      </if>
+      <if test="tdmTestnum != null" >
+        tdm_testNum,
+      </if>
+      <if test="tdmSchool != null" >
+        tdm_school,
+      </if>
+      <if test="tdmClass != null" >
+        tdm_class,
+      </if>
+      <if test="tdmGrade != null" >
+        tdm_grade,
+      </if>
+      <if test="tdmTestarea != null" >
+        tdm_testArea,
+      </if>
+      <if test="tdmYearseason != null" >
+        tdm_yearSeason,
+      </if>
+      <if test="tdmYearmonth != null" >
+        tdm_yearMonth,
+      </if>
+      <if test="tdmSpare1 != null" >
+        tdm_spare1,
+      </if>
+      <if test="tdmSpare2 != null" >
+        tdm_spare2,
+      </if>
+      <if test="tdmSpare3 != null" >
+        tdm_spare3,
+      </if>
+      <if test="tdmSpare4 != null" >
+        tdm_spare4,
+      </if>
+      <if test="tdmSpare5 != null" >
+        tdm_spare5,
+      </if>
+      <if test="tdmSpare6 != null" >
+        tdm_spare6,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="tdmId != null" >
+        #{tdmId,jdbcType=VARCHAR},
+      </if>
+      <if test="tdmMrid != null" >
+        #{tdmMrid,jdbcType=INTEGER},
+      </if>
+      <if test="tdmName != null" >
+        #{tdmName,jdbcType=VARCHAR},
+      </if>
+      <if test="tdmTestnum != null" >
+        #{tdmTestnum,jdbcType=VARCHAR},
+      </if>
+      <if test="tdmSchool != null" >
+        #{tdmSchool,jdbcType=VARCHAR},
+      </if>
+      <if test="tdmClass != null" >
+        #{tdmClass,jdbcType=VARCHAR},
+      </if>
+      <if test="tdmGrade != null" >
+        #{tdmGrade,jdbcType=VARCHAR},
+      </if>
+      <if test="tdmTestarea != null" >
+        #{tdmTestarea,jdbcType=VARCHAR},
+      </if>
+      <if test="tdmYearseason != null" >
+        #{tdmYearseason,jdbcType=VARCHAR},
+      </if>
+      <if test="tdmYearmonth != null" >
+        #{tdmYearmonth,jdbcType=VARCHAR},
+      </if>
+      <if test="tdmSpare1 != null" >
+        #{tdmSpare1,jdbcType=VARCHAR},
+      </if>
+      <if test="tdmSpare2 != null" >
+        #{tdmSpare2,jdbcType=VARCHAR},
+      </if>
+      <if test="tdmSpare3 != null" >
+        #{tdmSpare3,jdbcType=VARCHAR},
+      </if>
+      <if test="tdmSpare4 != null" >
+        #{tdmSpare4,jdbcType=VARCHAR},
+      </if>
+      <if test="tdmSpare5 != null" >
+        #{tdmSpare5,jdbcType=VARCHAR},
+      </if>
+      <if test="tdmSpare6 != null" >
+        #{tdmSpare6,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.back.testpro.model.TxDataCountMain" >
+    update tx_datacount_main
+    <set >
+      <if test="tdmMrid != null" >
+        tdm_mrid = #{tdmMrid,jdbcType=INTEGER},
+      </if>
+      <if test="tdmName != null" >
+        tdm_name = #{tdmName,jdbcType=VARCHAR},
+      </if>
+      <if test="tdmTestnum != null" >
+        tdm_testNum = #{tdmTestnum,jdbcType=VARCHAR},
+      </if>
+      <if test="tdmSchool != null" >
+        tdm_school = #{tdmSchool,jdbcType=VARCHAR},
+      </if>
+      <if test="tdmClass != null" >
+        tdm_class = #{tdmClass,jdbcType=VARCHAR},
+      </if>
+      <if test="tdmGrade != null" >
+        tdm_grade = #{tdmGrade,jdbcType=VARCHAR},
+      </if>
+      <if test="tdmTestarea != null" >
+        tdm_testArea = #{tdmTestarea,jdbcType=VARCHAR},
+      </if>
+      <if test="tdmYearseason != null" >
+        tdm_yearSeason = #{tdmYearseason,jdbcType=VARCHAR},
+      </if>
+      <if test="tdmYearmonth != null" >
+        tdm_yearMonth = #{tdmYearmonth,jdbcType=VARCHAR},
+      </if>
+      <if test="tdmSpare1 != null" >
+        tdm_spare1 = #{tdmSpare1,jdbcType=VARCHAR},
+      </if>
+      <if test="tdmSpare2 != null" >
+        tdm_spare2 = #{tdmSpare2,jdbcType=VARCHAR},
+      </if>
+      <if test="tdmSpare3 != null" >
+        tdm_spare3 = #{tdmSpare3,jdbcType=VARCHAR},
+      </if>
+      <if test="tdmSpare4 != null" >
+        tdm_spare4 = #{tdmSpare4,jdbcType=VARCHAR},
+      </if>
+      <if test="tdmSpare5 != null" >
+        tdm_spare5 = #{tdmSpare5,jdbcType=VARCHAR},
+      </if>
+      <if test="tdmSpare6 != null" >
+        tdm_spare6 = #{tdmSpare6,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where tdm_id = #{tdmId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.back.testpro.model.TxDataCountMain" >
+    update tx_datacount_main
+    set tdm_mrid = #{tdmMrid,jdbcType=INTEGER},
+      tdm_name = #{tdmName,jdbcType=VARCHAR},
+      tdm_testNum = #{tdmTestnum,jdbcType=VARCHAR},
+      tdm_school = #{tdmSchool,jdbcType=VARCHAR},
+      tdm_class = #{tdmClass,jdbcType=VARCHAR},
+      tdm_grade = #{tdmGrade,jdbcType=VARCHAR},
+      tdm_testArea = #{tdmTestarea,jdbcType=VARCHAR},
+      tdm_yearSeason = #{tdmYearseason,jdbcType=VARCHAR},
+      tdm_yearMonth = #{tdmYearmonth,jdbcType=VARCHAR},
+      tdm_spare1 = #{tdmSpare1,jdbcType=VARCHAR},
+      tdm_spare2 = #{tdmSpare2,jdbcType=VARCHAR},
+      tdm_spare3 = #{tdmSpare3,jdbcType=VARCHAR},
+      tdm_spare4 = #{tdmSpare4,jdbcType=VARCHAR},
+      tdm_spare5 = #{tdmSpare5,jdbcType=VARCHAR},
+      tdm_spare6 = #{tdmSpare6,jdbcType=VARCHAR}
+    where tdm_id = #{tdmId,jdbcType=VARCHAR}
+  </update>
+
+
+	<select id="queryTemp" resultMap="BaseResultMap"
+		parameterType="com.back.testpro.model.TxDataCountMain">
+		select
+		<include refid="Base_Column_List" />
+		from tx_datacount_main
+		<where>
+			(1=1)
+			<if test="tdmMrid!=null and tdmMrid!=''">
+				and tdm_mrid like concat(concat('%',#{tdmMrid}),'%')
+			</if>
+			
+			<if test="tdmName!=null and tdmName!=''">
+				and tdm_name like concat(concat('%',#{tdmName}),'%')
+			</if>
+			
+			<if test="tdmSpare5!=null and tdmSpare5!=''">
+				and tdm_spare5 like concat(concat('%',#{tdmSpare5}),'%')
+			</if>
+			
+			<if test="tdmTestnum!=null and tdmTestnum!=''">
+				and tdm_testNum like concat(concat('%',#{tdmTestnum}),'%')
+			</if>
+			
+			<if test="tdmSchool!=null and tdmSchool!=''">
+				and tdm_school like concat(concat('%',#{tdmSchool}),'%')
+			</if>
+			
+			<if test="tdmClass!=null and tdmClass!=''">
+				and tdm_class like concat(concat('%',#{tdmClass}),'%')
+			</if>
+			
+			<if test="tdmGrade!=null and tdmGrade!=''">
+				and tdm_grade like concat(concat('%',#{tdmGrade}),'%')
+			</if>
+			
+			<if test="tdmTestarea!=null and tdmTestarea!=''">
+				and tdm_testArea like concat(concat('%',#{tdmTestarea}),'%')
+			</if>
+			
+			<if test="tdmYearseason!=null and tdmYearseason!=''">
+				and tdm_yearSeason like concat(concat('%',#{tdmYearseason}),'%')
+			</if>
+			
+			<if test="tdmYearmonth!=null and tdmYearmonth!=''">
+				and tdm_yearMonth like concat(concat('%',#{tdmYearmonth}),'%')
+			</if>
+			
+		</where>
+		order by tdm_yearMonth desc,tdm_testNum asc, tdm_id desc
+	</select>
+	
+	
+	<select id="queryTempThree" resultMap="BaseResultMap" parameterType="com.back.testpro.model.TxDataCountMain">
+		select
+		<include refid="Base_Column_List" />
+		from tx_datacount_main
+		<where>
+			(1=1)
+			<if test="tdmSpare5!=null and tdmSpare5!=''">
+				and tdm_spare5 = #{tdmSpare5,jdbcType=VARCHAR}
+			</if>
+			<if test="tdmMrid!=null and tdmMrid!=''">
+				and tdm_mrid = #{tdmMrid,jdbcType=VARCHAR}
+			</if>
+		</where>
+		order by tdm_yearSeason desc,tdm_id desc
+	</select>
+	
+	  	<delete id="deleteByPrimaryKeys">
+		delete from tx_datacount_main
+		where tdm_id in
+		<foreach collection="array" item="item" index="index" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</delete>
+
+</mapper>

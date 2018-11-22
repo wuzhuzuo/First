@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.back.testpro.dao.TyModelMainMapper" >
+  <resultMap id="BaseResultMap" type="com.back.testpro.model.TyModelMain" >
+    <id column="tymm_id" property="tymmId" jdbcType="VARCHAR" />
+    <result column="tymm_name" property="tymmName" jdbcType="VARCHAR" />
+    <result column="tymm_time" property="tymmTime" jdbcType="VARCHAR" />
+    <result column="tymm_flag" property="tymmFlag" jdbcType="VARCHAR" />
+    <result column="tymm_spare1" property="tymmSpare1" jdbcType="VARCHAR" />
+    <result column="tymm_spare2" property="tymmSpare2" jdbcType="VARCHAR" />
+    <result column="tymm_spare3" property="tymmSpare3" jdbcType="VARCHAR" />
+    <result column="tymm_spare4" property="tymmSpare4" jdbcType="VARCHAR" />
+    <result column="tymm_spare5" property="tymmSpare5" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    tymm_id, tymm_name, tymm_time, tymm_flag, tymm_spare1, tymm_spare2, tymm_spare3, 
+    tymm_spare4, tymm_spare5
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ty_model_main
+    where tymm_id = #{tymmId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from ty_model_main
+    where tymm_id = #{tymmId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.back.testpro.model.TyModelMain" >
+    insert into ty_model_main (tymm_id, tymm_name, tymm_time, 
+      tymm_flag, tymm_spare1, tymm_spare2, 
+      tymm_spare3, tymm_spare4, tymm_spare5
+      )
+    values (#{tymmId,jdbcType=VARCHAR}, #{tymmName,jdbcType=VARCHAR}, #{tymmTime,jdbcType=VARCHAR}, 
+      #{tymmFlag,jdbcType=VARCHAR}, #{tymmSpare1,jdbcType=VARCHAR}, #{tymmSpare2,jdbcType=VARCHAR}, 
+      #{tymmSpare3,jdbcType=VARCHAR}, #{tymmSpare4,jdbcType=VARCHAR}, #{tymmSpare5,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.back.testpro.model.TyModelMain" >
+    insert into ty_model_main
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="tymmId != null" >
+        tymm_id,
+      </if>
+      <if test="tymmName != null" >
+        tymm_name,
+      </if>
+      <if test="tymmTime != null" >
+        tymm_time,
+      </if>
+      <if test="tymmFlag != null" >
+        tymm_flag,
+      </if>
+      <if test="tymmSpare1 != null" >
+        tymm_spare1,
+      </if>
+      <if test="tymmSpare2 != null" >
+        tymm_spare2,
+      </if>
+      <if test="tymmSpare3 != null" >
+        tymm_spare3,
+      </if>
+      <if test="tymmSpare4 != null" >
+        tymm_spare4,
+      </if>
+      <if test="tymmSpare5 != null" >
+        tymm_spare5,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="tymmId != null" >
+        #{tymmId,jdbcType=VARCHAR},
+      </if>
+      <if test="tymmName != null" >
+        #{tymmName,jdbcType=VARCHAR},
+      </if>
+      <if test="tymmTime != null" >
+        #{tymmTime,jdbcType=VARCHAR},
+      </if>
+      <if test="tymmFlag != null" >
+        #{tymmFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="tymmSpare1 != null" >
+        #{tymmSpare1,jdbcType=VARCHAR},
+      </if>
+      <if test="tymmSpare2 != null" >
+        #{tymmSpare2,jdbcType=VARCHAR},
+      </if>
+      <if test="tymmSpare3 != null" >
+        #{tymmSpare3,jdbcType=VARCHAR},
+      </if>
+      <if test="tymmSpare4 != null" >
+        #{tymmSpare4,jdbcType=VARCHAR},
+      </if>
+      <if test="tymmSpare5 != null" >
+        #{tymmSpare5,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.back.testpro.model.TyModelMain" >
+    update ty_model_main
+    <set >
+      <if test="tymmName != null" >
+        tymm_name = #{tymmName,jdbcType=VARCHAR},
+      </if>
+      <if test="tymmTime != null" >
+        tymm_time = #{tymmTime,jdbcType=VARCHAR},
+      </if>
+      <if test="tymmFlag != null" >
+        tymm_flag = #{tymmFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="tymmSpare1 != null" >
+        tymm_spare1 = #{tymmSpare1,jdbcType=VARCHAR},
+      </if>
+      <if test="tymmSpare2 != null" >
+        tymm_spare2 = #{tymmSpare2,jdbcType=VARCHAR},
+      </if>
+      <if test="tymmSpare3 != null" >
+        tymm_spare3 = #{tymmSpare3,jdbcType=VARCHAR},
+      </if>
+      <if test="tymmSpare4 != null" >
+        tymm_spare4 = #{tymmSpare4,jdbcType=VARCHAR},
+      </if>
+      <if test="tymmSpare5 != null" >
+        tymm_spare5 = #{tymmSpare5,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where tymm_id = #{tymmId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.back.testpro.model.TyModelMain" >
+    update ty_model_main
+    set tymm_name = #{tymmName,jdbcType=VARCHAR},
+      tymm_time = #{tymmTime,jdbcType=VARCHAR},
+      tymm_flag = #{tymmFlag,jdbcType=VARCHAR},
+      tymm_spare1 = #{tymmSpare1,jdbcType=VARCHAR},
+      tymm_spare2 = #{tymmSpare2,jdbcType=VARCHAR},
+      tymm_spare3 = #{tymmSpare3,jdbcType=VARCHAR},
+      tymm_spare4 = #{tymmSpare4,jdbcType=VARCHAR},
+      tymm_spare5 = #{tymmSpare5,jdbcType=VARCHAR}
+    where tymm_id = #{tymmId,jdbcType=VARCHAR}
+  </update>
+  
+  
+  <select id="queryTempList" resultMap="BaseResultMap"
+		parameterType="com.back.testpro.model.TyModelMain">
+		select
+		<include refid="Base_Column_List" />
+		from ty_model_main
+		<where>
+			(1=1)
+			
+			<if test="tymmSpare1!=null and tymmSpare1!=''">
+				and TYMM_SPARE1 like concat(concat('%',#{tymmSpare1}),'%')
+			</if>
+			
+			<if test="tymmName!=null and tymmName!=''">
+				and tymm_name like concat(concat('%',#{tymmName}),'%')
+			</if>
+			
+			
+		</where>
+		order by tymm_time desc,tymm_id asc
+	</select>
+	
+	
+	<delete id="deleteByPrimaryKeys">
+		delete from ty_model_main
+		where tymm_id in
+		<foreach collection="array" item="item" index="index" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</delete>
+  
+</mapper>

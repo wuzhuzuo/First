@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.back.testpro.dao.TyModelLanguageMapper" >
+  <resultMap id="BaseResultMap" type="com.back.testpro.model.TyModelLanguage" >
+    <id column="tyml_id" property="tymlId" jdbcType="VARCHAR" />
+    <result column="tyml_mainid" property="tymlMainid" jdbcType="VARCHAR" />
+    <result column="tyml_name" property="tymlName" jdbcType="VARCHAR" />
+    <result column="tyml_order" property="tymlOrder" jdbcType="INTEGER" />
+    <result column="tyml_flag" property="tymlFlag" jdbcType="INTEGER" />
+    <result column="tyml_level1" property="tymlLevel1" jdbcType="VARCHAR" />
+    <result column="tyml_level2" property="tymlLevel2" jdbcType="VARCHAR" />
+    <result column="tyml_level3" property="tymlLevel3" jdbcType="VARCHAR" />
+    <result column="tyml_level4" property="tymlLevel4" jdbcType="VARCHAR" />
+    <result column="tyml_level5" property="tymlLevel5" jdbcType="VARCHAR" />
+    <result column="tyml_level6" property="tymlLevel6" jdbcType="VARCHAR" />
+    <result column="tyml_level7" property="tymlLevel7" jdbcType="VARCHAR" />
+    <result column="tyml_level8" property="tymlLevel8" jdbcType="VARCHAR" />
+    <result column="tyml_level9" property="tymlLevel9" jdbcType="VARCHAR" />
+    <result column="tyml_level10" property="tymlLevel10" jdbcType="VARCHAR" />
+    <result column="tyml_spare1" property="tymlSpare1" jdbcType="VARCHAR" />
+    <result column="tyml_spare2" property="tymlSpare2" jdbcType="VARCHAR" />
+    <result column="tyml_spare3" property="tymlSpare3" jdbcType="VARCHAR" />
+    <result column="tyml_spare4" property="tymlSpare4" jdbcType="VARCHAR" />
+    <result column="tyml_spare5" property="tymlSpare5" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    tyml_id, tyml_mainid, tyml_name, tyml_order, tyml_flag, tyml_level1, tyml_level2, 
+    tyml_level3, tyml_level4, tyml_level5, tyml_level6, tyml_level7, tyml_level8, tyml_level9, 
+    tyml_level10, tyml_spare1, tyml_spare2, tyml_spare3, tyml_spare4, tyml_spare5
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ty_model_language
+    where tyml_id = #{tymlId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from ty_model_language
+    where tyml_id = #{tymlId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.back.testpro.model.TyModelLanguage" >
+    insert into ty_model_language (tyml_id, tyml_mainid, tyml_name, 
+      tyml_order, tyml_flag, tyml_level1, 
+      tyml_level2, tyml_level3, tyml_level4, 
+      tyml_level5, tyml_level6, tyml_level7, 
+      tyml_level8, tyml_level9, tyml_level10, 
+      tyml_spare1, tyml_spare2, tyml_spare3, 
+      tyml_spare4, tyml_spare5)
+    values (#{tymlId,jdbcType=VARCHAR}, #{tymlMainid,jdbcType=VARCHAR}, #{tymlName,jdbcType=VARCHAR}, 
+      #{tymlOrder,jdbcType=INTEGER}, #{tymlFlag,jdbcType=INTEGER}, #{tymlLevel1,jdbcType=VARCHAR}, 
+      #{tymlLevel2,jdbcType=VARCHAR}, #{tymlLevel3,jdbcType=VARCHAR}, #{tymlLevel4,jdbcType=VARCHAR}, 
+      #{tymlLevel5,jdbcType=VARCHAR}, #{tymlLevel6,jdbcType=VARCHAR}, #{tymlLevel7,jdbcType=VARCHAR}, 
+      #{tymlLevel8,jdbcType=VARCHAR}, #{tymlLevel9,jdbcType=VARCHAR}, #{tymlLevel10,jdbcType=VARCHAR}, 
+      #{tymlSpare1,jdbcType=VARCHAR}, #{tymlSpare2,jdbcType=VARCHAR}, #{tymlSpare3,jdbcType=VARCHAR}, 
+      #{tymlSpare4,jdbcType=VARCHAR}, #{tymlSpare5,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.back.testpro.model.TyModelLanguage" >
+    insert into ty_model_language
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="tymlId != null" >
+        tyml_id,
+      </if>
+      <if test="tymlMainid != null" >
+        tyml_mainid,
+      </if>
+      <if test="tymlName != null" >
+        tyml_name,
+      </if>
+      <if test="tymlOrder != null" >
+        tyml_order,
+      </if>
+      <if test="tymlFlag != null" >
+        tyml_flag,
+      </if>
+      <if test="tymlLevel1 != null" >
+        tyml_level1,
+      </if>
+      <if test="tymlLevel2 != null" >
+        tyml_level2,
+      </if>
+      <if test="tymlLevel3 != null" >
+        tyml_level3,
+      </if>
+      <if test="tymlLevel4 != null" >
+        tyml_level4,
+      </if>
+      <if test="tymlLevel5 != null" >
+        tyml_level5,
+      </if>
+      <if test="tymlLevel6 != null" >
+        tyml_level6,
+      </if>
+      <if test="tymlLevel7 != null" >
+        tyml_level7,
+      </if>
+      <if test="tymlLevel8 != null" >
+        tyml_level8,
+      </if>
+      <if test="tymlLevel9 != null" >
+        tyml_level9,
+      </if>
+      <if test="tymlLevel10 != null" >
+        tyml_level10,
+      </if>
+      <if test="tymlSpare1 != null" >
+        tyml_spare1,
+      </if>
+      <if test="tymlSpare2 != null" >
+        tyml_spare2,
+      </if>
+      <if test="tymlSpare3 != null" >
+        tyml_spare3,
+      </if>
+      <if test="tymlSpare4 != null" >
+        tyml_spare4,
+      </if>
+      <if test="tymlSpare5 != null" >
+        tyml_spare5,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="tymlId != null" >
+        #{tymlId,jdbcType=VARCHAR},
+      </if>
+      <if test="tymlMainid != null" >
+        #{tymlMainid,jdbcType=VARCHAR},
+      </if>
+      <if test="tymlName != null" >
+        #{tymlName,jdbcType=VARCHAR},
+      </if>
+      <if test="tymlOrder != null" >
+        #{tymlOrder,jdbcType=INTEGER},
+      </if>
+      <if test="tymlFlag != null" >
+        #{tymlFlag,jdbcType=INTEGER},
+      </if>
+      <if test="tymlLevel1 != null" >
+        #{tymlLevel1,jdbcType=VARCHAR},
+      </if>
+      <if test="tymlLevel2 != null" >
+        #{tymlLevel2,jdbcType=VARCHAR},
+      </if>
+      <if test="tymlLevel3 != null" >
+        #{tymlLevel3,jdbcType=VARCHAR},
+      </if>
+      <if test="tymlLevel4 != null" >
+        #{tymlLevel4,jdbcType=VARCHAR},
+      </if>
+      <if test="tymlLevel5 != null" >
+        #{tymlLevel5,jdbcType=VARCHAR},
+      </if>
+      <if test="tymlLevel6 != null" >
+        #{tymlLevel6,jdbcType=VARCHAR},
+      </if>
+      <if test="tymlLevel7 != null" >
+        #{tymlLevel7,jdbcType=VARCHAR},
+      </if>
+      <if test="tymlLevel8 != null" >
+        #{tymlLevel8,jdbcType=VARCHAR},
+      </if>
+      <if test="tymlLevel9 != null" >
+        #{tymlLevel9,jdbcType=VARCHAR},
+      </if>
+      <if test="tymlLevel10 != null" >
+        #{tymlLevel10,jdbcType=VARCHAR},
+      </if>
+      <if test="tymlSpare1 != null" >
+        #{tymlSpare1,jdbcType=VARCHAR},
+      </if>
+      <if test="tymlSpare2 != null" >
+        #{tymlSpare2,jdbcType=VARCHAR},
+      </if>
+      <if test="tymlSpare3 != null" >
+        #{tymlSpare3,jdbcType=VARCHAR},
+      </if>
+      <if test="tymlSpare4 != null" >
+        #{tymlSpare4,jdbcType=VARCHAR},
+      </if>
+      <if test="tymlSpare5 != null" >
+        #{tymlSpare5,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.back.testpro.model.TyModelLanguage" >
+    update ty_model_language
+    <set >
+      <if test="tymlMainid != null" >
+        tyml_mainid = #{tymlMainid,jdbcType=VARCHAR},
+      </if>
+      <if test="tymlName != null" >
+        tyml_name = #{tymlName,jdbcType=VARCHAR},
+      </if>
+      <if test="tymlOrder != null" >
+        tyml_order = #{tymlOrder,jdbcType=INTEGER},
+      </if>
+      <if test="tymlFlag != null" >
+        tyml_flag = #{tymlFlag,jdbcType=INTEGER},
+      </if>
+      <if test="tymlLevel1 != null" >
+        tyml_level1 = #{tymlLevel1,jdbcType=VARCHAR},
+      </if>
+      <if test="tymlLevel2 != null" >
+        tyml_level2 = #{tymlLevel2,jdbcType=VARCHAR},
+      </if>
+      <if test="tymlLevel3 != null" >
+        tyml_level3 = #{tymlLevel3,jdbcType=VARCHAR},
+      </if>
+      <if test="tymlLevel4 != null" >
+        tyml_level4 = #{tymlLevel4,jdbcType=VARCHAR},
+      </if>
+      <if test="tymlLevel5 != null" >
+        tyml_level5 = #{tymlLevel5,jdbcType=VARCHAR},
+      </if>
+      <if test="tymlLevel6 != null" >
+        tyml_level6 = #{tymlLevel6,jdbcType=VARCHAR},
+      </if>
+      <if test="tymlLevel7 != null" >
+        tyml_level7 = #{tymlLevel7,jdbcType=VARCHAR},
+      </if>
+      <if test="tymlLevel8 != null" >
+        tyml_level8 = #{tymlLevel8,jdbcType=VARCHAR},
+      </if>
+      <if test="tymlLevel9 != null" >
+        tyml_level9 = #{tymlLevel9,jdbcType=VARCHAR},
+      </if>
+      <if test="tymlLevel10 != null" >
+        tyml_level10 = #{tymlLevel10,jdbcType=VARCHAR},
+      </if>
+      <if test="tymlSpare1 != null" >
+        tyml_spare1 = #{tymlSpare1,jdbcType=VARCHAR},
+      </if>
+      <if test="tymlSpare2 != null" >
+        tyml_spare2 = #{tymlSpare2,jdbcType=VARCHAR},
+      </if>
+      <if test="tymlSpare3 != null" >
+        tyml_spare3 = #{tymlSpare3,jdbcType=VARCHAR},
+      </if>
+      <if test="tymlSpare4 != null" >
+        tyml_spare4 = #{tymlSpare4,jdbcType=VARCHAR},
+      </if>
+      <if test="tymlSpare5 != null" >
+        tyml_spare5 = #{tymlSpare5,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where tyml_id = #{tymlId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.back.testpro.model.TyModelLanguage" >
+    update ty_model_language
+    set tyml_mainid = #{tymlMainid,jdbcType=VARCHAR},
+      tyml_name = #{tymlName,jdbcType=VARCHAR},
+      tyml_order = #{tymlOrder,jdbcType=INTEGER},
+      tyml_flag = #{tymlFlag,jdbcType=INTEGER},
+      tyml_level1 = #{tymlLevel1,jdbcType=VARCHAR},
+      tyml_level2 = #{tymlLevel2,jdbcType=VARCHAR},
+      tyml_level3 = #{tymlLevel3,jdbcType=VARCHAR},
+      tyml_level4 = #{tymlLevel4,jdbcType=VARCHAR},
+      tyml_level5 = #{tymlLevel5,jdbcType=VARCHAR},
+      tyml_level6 = #{tymlLevel6,jdbcType=VARCHAR},
+      tyml_level7 = #{tymlLevel7,jdbcType=VARCHAR},
+      tyml_level8 = #{tymlLevel8,jdbcType=VARCHAR},
+      tyml_level9 = #{tymlLevel9,jdbcType=VARCHAR},
+      tyml_level10 = #{tymlLevel10,jdbcType=VARCHAR},
+      tyml_spare1 = #{tymlSpare1,jdbcType=VARCHAR},
+      tyml_spare2 = #{tymlSpare2,jdbcType=VARCHAR},
+      tyml_spare3 = #{tymlSpare3,jdbcType=VARCHAR},
+      tyml_spare4 = #{tymlSpare4,jdbcType=VARCHAR},
+      tyml_spare5 = #{tymlSpare5,jdbcType=VARCHAR}
+    where tyml_id = #{tymlId,jdbcType=VARCHAR}
+  </update>
+  
+  
+  
+    <select id="queryTemp" resultMap="BaseResultMap"
+		parameterType="com.back.testpro.model.TyModelLanguage">
+		select
+		<include refid="Base_Column_List" />
+		from ty_model_language
+		<where>
+			(1=1)
+			<if test="tymlMainid!=null and tymlMainid!=''">
+				and tyml_mainid like concat(concat('%',#{tymlMainid}),'%')
+			</if>
+			
+		</where>
+		order by tyml_order asc,tyml_flag asc
+	</select>
+	
+	
+	<delete id="deleteByPrimaryKeys">
+		delete from ty_model_language
+		where tyml_mainid in
+		<foreach collection="array" item="item" index="index" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</delete>
+</mapper>
